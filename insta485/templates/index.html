@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>insta485</title>
+</head>
+
+<body>
+  <div id="reactEntry">
+    Loading ...
+  </div>
+  <!-- Load JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+
+    <div class="navigationbar">
+        <span class="leftendtext" style="float:left;"><a href="/">/</a> insta485</span>
+        <span class="rightendtext" style="float:right;"><a href="/explore/">explore </a><a href="/users/{{logname}}/">{{logname}}</a></span>
+    </div>
+    <hr>
+</body>
+</html>

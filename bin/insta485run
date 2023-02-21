@@ -1,0 +1,19 @@
+#!/bin/bash
+# insta485run
+
+
+# Stop on errors
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+set -x
+
+
+DIR="var/insta485.sqlite3"
+if [ -f "$DIR" ]; then
+flask --app insta485 --debug run --host 0.0.0.0 --port 8000
+else
+### Take action if $DIR doesnt exist ###
+echo "Error: can't find database var/insta485.sqlite3"
+echo "Try: ./bin/insta485db create"
+exit 1
+fi

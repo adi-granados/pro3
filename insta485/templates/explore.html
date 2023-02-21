@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>insta485</title>
+</head>
+
+<body>
+    <div class="navigationbar">
+        <span class="leftendtext" style="float:left;"><a href="/">/</a> insta485</span>
+        <span class="rightendtext" style="float:right;"><a href="/explore/">explore </a> <a href="/users/{{logname}}/">{{logname}}</a></span>
+    </div>
+    <hr>
+    
+    <div class="users">
+    {% for user in users %}
+        <div><img src="/uploads/{{user.user_img_url}}" alt="" /><a href="/users/{{user.username}}/"><h2>{{user.username}}</h2></a></div>
+        <form action="/following/?target=/explore/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="follow" value="follow"/>
+            <input type="hidden" name="username" value="{{user.username}}"/>
+            <input type="hidden" name="operation" value="follow"/>
+          </form>
+    {% endfor %}
+    </div>
+        
+
+
+    
+</body>
+</html>
